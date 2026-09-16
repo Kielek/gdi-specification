@@ -6,6 +6,9 @@
 
 #### Breaking changes
 
+- Align attribute, span event, and span link count limits with the OpenTelemetry
+  default of `128` instead of using unlimited or higher defaults.
+
 #### Enhancements
 
 - Add initial configuration for OpAMP clients.
