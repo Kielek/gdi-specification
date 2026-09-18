@@ -8,6 +8,7 @@
 
 - Align attribute, span event, and span link count limits with the OpenTelemetry
   default of `128` instead of using unlimited or higher defaults.
+  [#414](https://github.com/signalfx/gdi-specification/pull/414)
 
 #### Enhancements
 
