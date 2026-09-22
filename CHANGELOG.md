@@ -7,7 +7,11 @@
 #### Breaking changes
 
 - Align attribute, span event, and span link count limits with the OpenTelemetry
-  default of `128` instead of using unlimited or higher defaults.
+  default of `128` instead of using unlimited or higher defaults, mitigating
+  potential denial of service through unbounded telemetry collections. Users
+  that need higher limits can explicitly configure the affected
+  `OTEL_*_COUNT_LIMIT` variables. Values approximating the previous defaults
+  increase memory usage and exposure to resource exhaustion.
   [#414](https://github.com/signalfx/gdi-specification/pull/414)
 
 #### Enhancements
