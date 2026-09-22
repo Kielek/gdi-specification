@@ -17,6 +17,14 @@
 
 #### Bugfixes
 
+### Versioning
+
+#### Enhancements
+
+- Allow narrowly scoped backward-incompatible security fixes to be released in
+  a `MINOR` version when retaining the existing behavior would leave users
+  exposed.
+
 ### Repository
 
 #### Breaking changes

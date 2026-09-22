@@ -4,7 +4,7 @@
 
 All GDI repositories MUST be versioned according to [Semantic Versioning
 2.0](https://semver.org/spec/v2.0.0.html) using the syntax idiomatic to their
-language.
+language, except as permitted by the [Security Exception](#security-exception).
 
 GDI repositories are versioned separately from OpenTelemetry repositories as
 Splunk-specific breaking changes MAY be introduced.
@@ -54,17 +54,31 @@ until the end of that component’s existence:
 
 - **Configuration Stability**: Backward-incompatible changes to configuration,
   which includes environment variables and system properties, MUST NOT be made
-  unless the `MAJOR` version number is incremented. All existing configuration
-  parameters MUST continue to function against all future `MINOR` versions of
-  the same `MAJOR` version.
+  unless the `MAJOR` version number is incremented or the change is permitted by
+  the [Security Exception](#security-exception). Unless that exception applies,
+  all existing configuration parameters MUST continue to function against all
+  future `MINOR` versions of the same `MAJOR` version.
 - **Component Stability**: Stable components MUST be deprecated for at least
   six months before being removed. Deprecated components MUST be removed as
   part of a `MAJOR` version number increase but MAY remain deprecated across
   multple `MAJOR` versions. Deprecated components MUST continue to function
   until removed.
-- **Support**: A `MAJOR` versions MUST be supported for one year following a
-  new `MAJOR` version release. Support MUST includes security and critical bug
-  fixes and SHOULD NOT include new features or enhancements. Security fixes
-  MUST be provided as the latest `PATCH` version for the latest `MINOR` version
-  of the latest `MAJOR` and SHOULD NOT be provided for previous `PATCH` or
-  `MINOR` releases.
+- **Support**: A `MAJOR` version MUST be supported for one year following a new
+  `MAJOR` version release. Support MUST include security and critical bug
+  fixes and SHOULD NOT include new features or enhancements. Backward-compatible
+  security fixes MUST be provided as the latest `PATCH` version for the latest
+  `MINOR` version of the latest `MAJOR` and SHOULD NOT be provided for previous
+  `PATCH` or `MINOR` releases.
+
+### Security Exception
+
+A backward-incompatible change that is necessary to remediate or mitigate a
+documented security vulnerability MAY be released in a `MINOR` version without
+incrementing the `MAJOR` version when retaining the existing behavior by default
+would leave users exposed. The change MUST be limited to what is necessary to
+address the vulnerability. Release notes MUST identify the backward-incompatible
+behavior, explain its security rationale, and provide migration guidance. If
+users can explicitly restore the previous behavior, the release notes MUST also
+explain the security implications of doing so.
+
+This exception MUST NOT be used for feature changes or ordinary bug fixes.
