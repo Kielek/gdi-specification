@@ -24,6 +24,7 @@
 - Allow narrowly scoped backward-incompatible security fixes to be released in
   a `MINOR` version when retaining the existing behavior would leave users
   exposed.
+  [#415](https://github.com/signalfx/gdi-specification/pull/415)
 
 ### Repository
 
