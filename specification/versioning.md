@@ -81,5 +81,3 @@ identify the backward-incompatible behavior, explain its security rationale,
 and provide migration guidance. If users can explicitly restore the previous
 behavior, the release notes MUST also explain the security implications of
 doing so.
-
-This exception MUST NOT be used for feature changes or ordinary bug fixes.
