@@ -72,13 +72,14 @@ until the end of that component’s existence:
 
 ### Security Exception
 
-A backward-incompatible change that is necessary to remediate or mitigate a
-documented security vulnerability MAY be released in a `MINOR` version without
-incrementing the `MAJOR` version when retaining the existing behavior by default
-would leave users exposed. The change MUST be limited to what is necessary to
-address the vulnerability. Release notes MUST identify the backward-incompatible
-behavior, explain its security rationale, and provide migration guidance. If
-users can explicitly restore the previous behavior, the release notes MUST also
-explain the security implications of doing so.
+A backward-incompatible change in a GDI repository that is necessary to
+remediate or mitigate a documented security vulnerability MAY be released in a
+`MINOR` version without incrementing the `MAJOR` version when retaining the
+existing behavior by default would leave users exposed. The change MUST be
+limited to what is necessary to address the vulnerability. Release notes MUST
+identify the backward-incompatible behavior, explain its security rationale,
+and provide migration guidance. If users can explicitly restore the previous
+behavior, the release notes MUST also explain the security implications of
+doing so.
 
 This exception MUST NOT be used for feature changes or ordinary bug fixes.
